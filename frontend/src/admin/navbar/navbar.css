@@ -1,0 +1,22 @@
+.navbar-brand {
+    font-size: 1.5rem;
+  }
+  
+  .navbar-nav li {
+    margin: 0 10px;
+  }
+  
+  .dropdown-menu {
+    margin-top: 0;
+  }
+  
+  .dropdown-item {
+    color: #212529;
+  }
+  
+  .dropdown-item:hover {
+    background-color: #f8f9fa;
+  }
+  .sb-nav-link-icon{
+    color: white;
+  }

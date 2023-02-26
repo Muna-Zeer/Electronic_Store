@@ -1,0 +1,12 @@
+.footerWeb{
+    background-color: #00425A;
+    color: #C0EEF2;
+}
+h5,p,ul li{
+    color: #F0EEED;
+}
+.iconStyle{
+    color:#C0EEF2;
+    font-size: 2rem;
+    padding: 10px;
+}

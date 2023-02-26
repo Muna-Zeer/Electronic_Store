@@ -1,0 +1,36 @@
+.NavigationHeader{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #00425A;
+ color: #E9F8F9;
+ padding: 15px;
+}
+.logo{
+  font-size:1.5rem;
+  font-weight: bold;
+  display: inline-flex;
+}
+nav ul{
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+nav li{
+  margin:0 15px ;
+
+}
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-left: auto;
+}
+input[type='text']{
+  background-color: #E9F8F9;
+  color: #00425A;
+  border: none;
+  padding: 5px;
+  margin-left: 10px;
+}

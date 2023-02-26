@@ -1,0 +1,27 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+}
+
+.btnPrevious,
+.btnNext {
+    background-color: #2B3467;
+    color: #fff;
+    font-size: 20px;
+    border-radius: 5px;
+    margin: 5px;
+    border: 0;
+    width: 100px;
+}
+
+.btnPrevious:hover,
+.btnNext:hover {
+    color: #2B3467;
+    background-color: #fff;
+}
+
+.btnPrevious:active,
+.btnNext:active {
+    color: black;
+    background-color: #2B3467;
+}

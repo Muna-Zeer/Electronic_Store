@@ -1,0 +1,13 @@
+img{
+    width: 100%;
+    height: 600px;
+    background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  
+}
+h1,p{
+    color: #13005A;
+    font-size: 25px;
+    box-shadow: #13005A;
+}
