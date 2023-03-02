@@ -11,5 +11,5 @@ class Item extends Model
     
     protected $table='items';
 
-    protected $fillable=['id','category_id','product_name','description','brand','selling_price','original_price','Qty','image','featured'];
+    protected $fillable=['id','category_id','product_name','description','brand','selling_price','original_price','Qty','image','featured','user_Qty'];
 }

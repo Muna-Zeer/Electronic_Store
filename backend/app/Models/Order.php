@@ -10,8 +10,8 @@ class Order extends Model
     use HasFactory;
     protected $table='orders';
     protected $fillable=['id','user_id','firstName','lastName','phone','email','address','city','state','zipCode','payment_id','payment_mode','result'];
-    public function orderItems()
+    public function orderitems()
     {
-        return $this->hasMany(OrderDetails::class, 'order_id', 'id');
+        return $this->hasMany(OrderDetail::class, 'order_id', 'id');
     }
 }

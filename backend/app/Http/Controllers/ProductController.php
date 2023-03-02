@@ -22,10 +22,10 @@ class ProductController extends Controller
     public function index()
     {
         //
-        $product= DB::table('items')
-        ->join('categories', 'items.category_id', '=', 'categories.id')
-        ->select('items.*', 'categories.name as category_name')
-        ->paginate(6);
+        $product = DB::table('items')
+            ->join('categories', 'items.category_id', '=', 'categories.id')
+            ->select('items.*', 'categories.name as category_name')
+            ->paginate(6);
         return response()->json([
             'status' => 200,
             'message' => 'success',
@@ -34,17 +34,17 @@ class ProductController extends Controller
     }
 
     public function viewproduct($id)
-{
-    $item = DB::table('items')
-                ->join('categories', 'items.category_id', '=', 'categories.id')
-                ->select('items.*', 'categories.name')
-                ->where('items.id', '=', $id)
-                ->first();
+    {
+        $item = DB::table('items')
+            ->join('categories', 'items.category_id', '=', 'categories.id')
+            ->select('items.*', 'categories.name')
+            ->where('items.id', '=', $id)
+            ->first();
 
-    return response()->json([
-        'item' => $item
-    ]);
-}
+        return response()->json([
+            'item' => $item
+        ]);
+    }
 
     public function viewItems()
     {
@@ -175,7 +175,7 @@ class ProductController extends Controller
         $validator = Validator::make($request->all(), [
             'category_id' => 'required|max:191',
 
-           
+
 
             'product_name' => 'sometimes|max:191',
             'brand' => 'sometimes|max:20',
@@ -183,7 +183,7 @@ class ProductController extends Controller
             'original_price' => 'sometimes|max:20',
             'Qty' => 'sometimes|max:4',
             // 'image' => 'sometimes|image|mimes:jpeg,png,jpg|max:2048',
-            
+
         ]);
 
 

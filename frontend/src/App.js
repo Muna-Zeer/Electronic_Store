@@ -25,6 +25,9 @@ import Viewproduct from './components/AdminFunctionality/product/view-product.co
 import Editproduct from './components/AdminFunctionality/product/editproduct.components';
 import Order from './components/AdminFunctionality/orders/orders.components';
 import ViewProduct from './Pages/Product/viewproduct.pages';
+import Cart from './Pages/cart/cart.pages';
+import Checkout from './Pages/checkout/checkout.pages';
+import ViewOrder from './components/AdminFunctionality/orders/vieworders.components';
 
 
 axios.defaults.headers.post['Content-Type'] = 'application/json';
@@ -32,19 +35,19 @@ axios.defaults.headers.post['Accept'] = 'application/json';
 axios.defaults.baseURL = "http://127.0.0.1:8000"; //Before sending get request
 axios.defaults.withCredentials = true;
 function App() {
-  const [orders, setOrders] = useState([])
-  useEffect(()=>{
-    async function getAllOrder(){
-      try {
-        const orders = await axios.get("http://127.0.0.1:8000/api/orders")
-        console.log(orders.data)
-        setOrders(orders.data)
-      } catch (error) {
-        console.log(error)
-      }
-    }
-    getAllOrder()
-  }, [])
+  // const [orders, setOrders] = useState([])
+  // useEffect(()=>{
+  //   async function getAllOrder(){
+  //     try {
+  //       const orders = await axios.get("http://127.0.0.1:8000/api/orders")
+  //       console.log(orders.data)
+  //       setOrders(orders.data)
+  //     } catch (error) {
+  //       console.log(error)
+  //     }
+  //   }
+  //   getAllOrder()
+  // }, [])
   
 
   axios.interceptors.request.use(function (config){
@@ -79,7 +82,10 @@ function App() {
           <Route path="/admin/orders" element={<Order/>} />
           <Route path="/admin/category" element={<ViewCategory/>} />
           <Route path="/Product/view-product/:id" element={<ViewProduct/>} />
-
+          <Route path="/addCart" element={<Cart/>} />
+          <Route path="/checkout" element={<Checkout/>} />
+          <Route path="/admin/viewOrders" element={<Order/>} />
+          <Route path="/admin/view-orders/:id" element={<ViewOrder/>} />
         </Routes>
     
      <Footer/>

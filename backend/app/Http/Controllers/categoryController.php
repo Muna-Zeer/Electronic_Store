@@ -1,10 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use Illuminate\Support\Facades\DB;
+
 class categoryController extends Controller
 {
     /**
@@ -15,24 +17,23 @@ class categoryController extends Controller
     public function index()
     {
         //
-        $category=Category::paginate(6);
+        $category = Category::paginate(6);
         return response()->json([
-            'status'=>200,
-            'category'=>$category,
+            'status' => 200,
+            'category' => $category,
         ]);
-
     }
 
 
- public function categoryType(){
-    $categories = DB::select('SELECT id, name FROM categories
+    public function categoryType()
+    {
+        $categories = DB::select('SELECT id, name FROM categories
     ');
-     return response()->json([
-            'status'=>200,
-            'category'=>$categories,
+        return response()->json([
+            'status' => 200,
+            'category' => $categories,
         ]);
-       
- }
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -53,28 +54,25 @@ class categoryController extends Controller
     public function store(Request $request)
     {
         //
-        $validator=Validator::make($request->all(),[
-            'name'=>'required|max:191',
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|max:191',
             // 'description'=>'required|max:191',
         ]);
-        if($validator->fails()){
+        if ($validator->fails()) {
             return response()->json([
-                'status'=>400,
-                'errors'=>$validator->errors(),
+                'status' => 400,
+                'errors' => $validator->errors(),
             ]);
-
-        }
-        else{
-            $category=new Category;
-            $category->name=$request->input('name');
-            $category->description=$request->input('description');
+        } else {
+            $category = new Category;
+            $category->name = $request->input('name');
+            $category->description = $request->input('description');
             $category->save();
             return response()->json([
-                'status'=>200,
-                'message'=>'category added successfully'
+                'status' => 200,
+                'message' => 'category added successfully'
             ]);
         }
-
     }
 
     /**
@@ -97,18 +95,17 @@ class categoryController extends Controller
     public function edit($id)
     {
         //
-        $category=Category::find($id);
-        if($category){
+        $category = Category::find($id);
+        if ($category) {
             return response()->json([
-                'status'=>200,
-                'category'=>$category,
-                'message'=>"successfully edited ",
+                'status' => 200,
+                'category' => $category,
+                'message' => "successfully edited ",
             ]);
-        }
-        else{
+        } else {
             return response()->json([
-                'status'=>404,
-                'message'=>'there is no category with id'.$id,
+                'status' => 404,
+                'message' => 'there is no category with id' . $id,
             ]);
         }
     }
@@ -123,35 +120,32 @@ class categoryController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $validator=Validator::make($request->all(),[
-            'name'=>'required|max:191',
-            'description'=>'required|max:255',
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|max:191',
+            'description' => 'required|max:255',
         ]);
-         if($validator->fails()){
+        if ($validator->fails()) {
             return response()->json([
-                'status'=>422,
-                'message'=>$validator->message(),
+                'status' => 422,
+                'message' => $validator->message(),
             ]);
-         }
-          
-       else{
-        $category=Category::find($id);
-        if($category){
-            $category->name=$request->input('name');
-            $category->description=$request->input('description');
-            $category->save();
-            return response()->json([
-                'status'=>200,
-                'message'=>'successfully updated category',
-            ]);
+        } else {
+            $category = Category::find($id);
+            if ($category) {
+                $category->name = $request->input('name');
+                $category->description = $request->input('description');
+                $category->save();
+                return response()->json([
+                    'status' => 200,
+                    'message' => 'successfully updated category',
+                ]);
+            } else {
+                return response()->json([
+                    'status' => 404,
+                    'message' => 'category not found or invalid',
+                ]);
+            }
         }
-         else{
-            return response()->json([
-                'status'=>404,
-                'message'=>'category not found or invalid',
-            ]);
-         }
-       }  
     }
 
     /**
@@ -163,18 +157,17 @@ class categoryController extends Controller
     public function destroy($id)
     {
         //
-        $category=Category::find($id);
-        if($category){
+        $category = Category::find($id);
+        if ($category) {
             $category->delete();
             return response()->json([
-                'status'=>200,
-                'message'=>'Successfully deleted the specified resource category.'
+                'status' => 200,
+                'message' => 'Successfully deleted the specified resource category.'
             ]);
-        }
-        else{
+        } else {
             return response()->json([
-                'status'=>404,
-                'message'=>'No category specified found for the category'.$id
+                'status' => 404,
+                'message' => 'No category specified found for the category' . $id
             ]);
         }
     }

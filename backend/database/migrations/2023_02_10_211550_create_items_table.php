@@ -22,6 +22,7 @@ return new class extends Migration
             $table->Integer('selling_price');
             $table->Integer('original_price');
             $table->string('Qty');
+            $table->string('user_Qty');
             $table->string('image')->nullable();
             $table->string('featured')->nullable();
             $table->timestamps();

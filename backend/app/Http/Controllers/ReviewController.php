@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\review;
 use Illuminate\Support\Facades\Auth;
+
 class ReviewController extends Controller
 {
     /**
@@ -42,7 +43,7 @@ class ReviewController extends Controller
             'review_text' => 'required|string',
         ]);
         //create a new review object and set the data
-        $review=new Review;
+        $review = new Review;
         $review->product_id = $request->product_id;
         $review->user_id = Auth::id();
         $review->rating = $request->rating;

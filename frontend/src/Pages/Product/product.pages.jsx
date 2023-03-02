@@ -15,7 +15,10 @@ const Product = (props) => {
         const product = await axios.get(
           `http://127.0.0.1:8000/api/viewItems?page=${currentPage}`
         );
-        console.log(product.data.products);
+        console.log('product.data.products',product.data.products);
+        console.log('product.data',product.data);
+        console.log('product.data.products.data',product.data.products.data);
+        // console.log(product.data.products);
         setProduct(product.data.products.data);
       } catch (error) {
         console.log(error);
@@ -32,19 +35,20 @@ const Product = (props) => {
   };
   return (
     <div>
-      <div className="container">
+      <div className="container-fluid">
         <div className="productList">
           <div className=" productListCard ">
             {products.length > 0 &&
               products.map((products, key) => {
                 return (
-                  <div className="productListBox">
+                  <div className="productListBox " >
                     <p style={{ color: "black" }}>{products.product_name}</p>
                     <div className="listImg">
                       <Link className="nav-link" to="">
                         <img
                           src={`http://localhost:8000/storage/${products.image}`}
                           alt={products.product_name}
+                          style={{width:"350px",height:"200px"}}
                         />
                       </Link>
                     </div>
@@ -62,11 +66,13 @@ const Product = (props) => {
                       <p className="listItem">{products.description}</p>
 
                       <button className="btn-orderNow">
-  <Link to={`/Product/view-product/${products.id}`} className="OrderOnline-orderNow">
-    view product
-  </Link>
-</button>
-
+                        <Link
+                          to={`/Product/view-product/${products.id}`}
+                          className="OrderOnline-orderNow"
+                        >
+                          view product
+                        </Link>
+                      </button>
                     </div>
                   </div>
                 );

@@ -12,7 +12,8 @@ const Order = () => {
     axios.get(`http://127.0.0.1:8000/api/admin/orders`).then((res) => {
       if (isRendering) {
         if (res.data.status === 200) {
-          setOrders(res.data.orders);
+          console.log('res.data.orders',res.data.orders.data);
+          setOrders(res.data.orders.data);
           setLoading(false);
         }
       }
@@ -21,29 +22,34 @@ const Order = () => {
       isRendering = false;
     };
   }, []);
-  var orderList = "";
+ let orderList = "";
 
   if (loading) {
     return <h4>order list loading ...</h4>;
   } else {
-    orderList = orders.map((order)=>{
-      <tr key={order.id}>
-        <td>{order.user_id}</td>
-        <td>{order.firstName}</td>
-        <td>{order.lastName}</td>
-        <td>{order.phone}</td>
-        <td>{order.email}</td>
-        <td>{order.city}</td>
-        <td>
-          <Link
-            to={`view-order/${order.id}`}
-            className="btn btn-success btn-sm"
-          >
-            View
-          </Link>
-        </td>
-      </tr>;
-    });
+    if (loading) {
+      return <h4>order list loading ...</h4>;
+    } else {
+      orderList = orders.length > 0 && orders.map((order)=>{
+        return (
+          <tr key={order.id}>
+            <td>{order.user_id}</td>
+            <td>{order.firstName}</td>
+            <td>{order.lastName}</td>
+            <td>{order.phone}</td>
+            <td>{order.email}</td>
+            <td>{order.city}</td>
+            <td>
+              <Link
+                to={`/admin/view-orders/${order.id}`}
+                className="btn btn-success btn-sm"
+              >
+                View
+              </Link>
+            </td>
+          </tr>
+        );
+      });}
   }
 
   return (
@@ -59,9 +65,8 @@ const Order = () => {
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>lastName</th>
-                                <th>lastName</th>
                                 <th>firstName</th>
+                                <th>lastName</th>
                                 <th>Phone No.</th>
                                 <th>Email</th>
                                 <th>city</th>

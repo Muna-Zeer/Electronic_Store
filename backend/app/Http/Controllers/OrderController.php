@@ -5,10 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Order;
 use Illuminate\Support\Facades\DB;
+
 class OrderController extends Controller
 {
-  
-    
+
+
     /**
      * Display a listing of the resource.
      *
@@ -19,10 +20,18 @@ class OrderController extends Controller
         //
         // $result=response()->json(Order::latest()->get());
         // return $result;
-        $order=Order::paginate(10);
+        $order = Order::paginate(10);
         return response()->json([
-            'status'=>200,
-            'orders'=>$order,
+            'status' => 200,
+            'orders' => $order,
+        ]);
+    }
+    public function viewOrder($id)
+    {
+        $order = Order::paginate(10);
+        return response()->json([
+            'status' => 200,
+            'orders' => $order,
         ]);
     }
 
