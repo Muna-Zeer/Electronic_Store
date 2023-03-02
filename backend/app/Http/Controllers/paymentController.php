@@ -44,14 +44,14 @@ class paymentController extends Controller
         if(auth('sanctum')->check())
         {
             $validator = Validator::make($request->all(), [
-                // 'firstName' => 'required|max:191',
-                // 'lastName'=>'required|max:191',
-                // 'phone'=>'required|max:191',
-                // 'email'=>'required|max:191',
-                // 'address'=>'required|max:191',
-                // 'city'=>'required|max:191',
-                // 'state'=>'required|max:191',
-                // 'zipCode'=>'required|max:191',
+                'firstName' => 'required|max:191',
+                'lastName'=>'required|max:191',
+                'phone'=>'required|max:191',
+                'email'=>'required|max:191',
+                'address'=>'required|max:191',
+                'city'=>'required|max:191',
+                'state'=>'required|max:191',
+                'zipCode'=>'required|max:191',
             ]);
 
             if($validator->fails())

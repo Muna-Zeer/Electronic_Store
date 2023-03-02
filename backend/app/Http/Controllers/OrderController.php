@@ -28,8 +28,16 @@ class OrderController extends Controller
     }
     public function viewOrder($id)
     {
-        $order = Order::paginate(10);
-        return response()->json([
+        // $order = Order::paginate(10);
+        // return response()->json([
+        //     'status' => 200,
+        //     'orders' => $order,
+        // ]);
+        $order = DB::table('orders')
+        ->select('orders.*')
+        ->where('orders.id', '=', $id)
+        ->first();
+         return response()->json([
             'status' => 200,
             'orders' => $order,
         ]);

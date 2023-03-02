@@ -24,6 +24,7 @@ const Cart = () => {
         if (isMounted) {
           if (res.data.status === 200) {
             setCart(res.data.cart);
+            console.log('cart',cart);
             setLoading(false);
           } else if (res.data.status === 401) {
             navigate("/");
