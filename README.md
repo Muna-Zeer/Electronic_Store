@@ -1,5 +1,5 @@
 # Electronic_Store
-### This is an electronic store application built with Laravel for the backend and ReactJS for the frontend. The database is built using MySQL and the application features access control for users and administrators. Administrators have the ability to perform CRUD operations on products and categories, as well as observe customer orders. Users are able to view products, browse categories, add items to their cart, and checkout their purchases.
+This is an electronic store application built with Laravel for the backend and ReactJS for the frontend. The database is built using MySQL and the application features access control for users and administrators. Administrators have the ability to perform CRUD operations on products and categories, as well as observe customer orders. Users are able to view products, browse categories, add items to their cart, and checkout their purchases.
 
 ## Installation
 1. Clone the repository
@@ -61,3 +61,5 @@ npm start
 * To checkout, simply click the "Checkout" button in the cart and provide the necessary information.
 
 * Administrators can perform CRUD operations on products and categories by navigating to the appropriate section in the admin dashboard.
+
+
