@@ -66,7 +66,7 @@ const ViewProduct = () => {
     console.log("data is", data);
     axios.post(`http://127.0.0.1:8000/api/add-to-cart`, data).then((res) => {
       if (res.data.status === 200) {
-        swal("success", res.data.message, "success");
+       
 
         console.log("data inside post ", data);
         setProduct({
@@ -81,6 +81,7 @@ const ViewProduct = () => {
           image: "",
           error_List: [],
         });
+        // swal("success", res.data.message, "success");
         console.log("data inside post", data);
       } else if (res.data.status === 409) {
         //already added to cart

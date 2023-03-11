@@ -6,8 +6,8 @@ import { Link, useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const [cart, setCart] = useState([]);
-  const [total, setTotal] = useState(0);
-  const [user, setUser] = useState("");
+  // const [total, setTotal] = useState(0);
+  // const [user, setUser] = useState("");
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
   let totalCart = 0;
@@ -73,12 +73,13 @@ const Cart = () => {
       .put(`http://127.0.0.1:8000/api/cart-updateQty/${cart_id}/${scope}`)
       .then((res) => {
         if (res.data.status === 200) {
-          swal("success", res.data.message);
+          
           // console.log('res.data.cart.product_qty',res.data.cart.product_qty);
           // console.log('res.data.cart.product_Qty',res.data.cart.product_Qty);
           console.log("res.data.cartItem", res.data.cartItem);
-          console.log("res.data", res.data);
-          // setCart(cart.cartItem);
+          console.log("res.data", res.data.cartItem);
+          setCart(res.data);
+          swal("success", res.data.message);
         } else if (res.data.status === 404) {
           swal("warning", res.data.message);
         } else if (res.data.status === 400) {
@@ -133,6 +134,10 @@ const Cart = () => {
         <div className="table-responsive">
           <table className="table table-bordered">
             <thead>
+               {/* <Link to="/product" className="btn btn-primary " >
+               content shopping
+              </Link> */}
+
               <tr>
                 <th>Image</th>
                 <th>Product</th>

@@ -100,7 +100,7 @@ class paymentController extends Controller
 
                 return response()->json([
                     'status'=>200,
-                    'message'=>'Order Placed Successfully'.$order,
+                    'message'=>'Order Placed Successfully'.$order->firstName."  ".$order->lastName,
                 ]);
             }
         }

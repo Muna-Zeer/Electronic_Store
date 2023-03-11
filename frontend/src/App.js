@@ -86,6 +86,7 @@ function App() {
           <Route path="/checkout" element={<Checkout/>} />
           <Route path="/admin/viewOrders" element={<Order/>} />
           <Route path="/admin/view-orders/:id" element={<ViewOrder/>} />
+          
         </Routes>
     
      <Footer/>

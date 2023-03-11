@@ -34,3 +34,7 @@ input[type='text']{
   padding: 5px;
   margin-left: 10px;
 }
+.sb-nav-link-icon
+{
+  color: white;
+}

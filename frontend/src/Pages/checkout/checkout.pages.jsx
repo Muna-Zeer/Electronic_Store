@@ -347,24 +347,24 @@ const Checkout = () => {
                         className="btn btn-primary mx-1"
                         onClick={(e) => submitOrder(e, "cod")}
                       >
-                        <Link to="/admin/viewOrders" className="btn btn-primary">
+                        <Link to="/" className="btn btn-primary">
                           Place Order
                         </Link>
                       </button>
-                      <button
+                      {/* <button
                         type="button"
                         className="btn btn-primary mx-1"
                         onClick={(e) => submitOrder(e, "razorpay")}
                       >
                         Pay by Razorpay
-                      </button>
-                      <button
+                      </button> */}
+                      {/* <button
                         type="button"
                         className="btn btn-warning mx-1"
                         onClick={(e) => submitOrder(e, "payonline")}
                       >
                         Pay Online
-                      </button>
+                      </button> */}
                     </div>
                   </div>
                 </div>

@@ -6,7 +6,7 @@ import Category from '../../Pages/Category/category.pages';
 
 const NavigationHeader = () => {
     return (
-        <div className='NavigationHeader container-fluid '>
+        <div className='NavigationHeader container-fluid ' >
             <div className='col-sm-2 '>
 
                 <span className="logo ">
@@ -14,39 +14,104 @@ const NavigationHeader = () => {
                     <i style={{ color: 'white' }}>Shopping</i>
                 </span>
             </div>
-            <nav className=' navHeader  col-sm-10'>
-                <ul>
-                    <li className='Home col-sm-1'>
+            <nav className="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+        <div className="sb-sidenav-menu">
+            <div className="nav">
+            <Link className="nav-link"style={{ color: 'white' }} to="">
+                <div className="sb-sidenav-menu-heading" style={{ color: 'white' }}>Core</div>
+                </Link>
+                <Link className="nav-link"style={{ color: 'white' }} to="/admin/dashboard">
+                    {/* <div className="sb-nav-link-icon"><i className="fas fa-tachometer-alt"></i></div> */}
+                    Dashboard
+                </Link>
+                <Link className="nav-link"style={{ color: 'white' }} to="/admin/add-category">
+                    <div className="sb-nav-link-icon"><i className="fas fa-tachometer-alt"></i></div>
+                    Add Category
+                </Link>
+                <Link className="nav-link"style={{ color: 'white' }} to="/admin/view-category">
+                    <div className="sb-nav-link-icon"><i className="fas fa-tachometer-alt"></i></div>
+                    View Category
+                </Link>
+                <Link className="nav-link"style={{ color: 'white' }} to="/admin/viewOrders">
+                    <div className="sb-nav-link-icon"><i className="fas fa-tachometer-alt"></i></div>
+                    Orders
+                </Link>
 
-                        <Link className="nav-link" to="/Home"> Home </Link>
-                    </li>
+                <Link className="nav-link collapsed" to="#" data-bs-toggle="collapse" data-bs-target="#collapseProduct" aria-expanded="false" aria-controls="collapseProduct">
+                    <div className="sb-nav-link-icon"><i className="fas fa-columns"></i></div>
+                    Products
+                    <div className="sb-sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
+                </Link>
+                <div className="collapse" id="collapseProduct" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                    <nav className="sb-sidenav-menu-nested nav">
+                        <Link className="nav-link"style={{ color: 'white' }} to="/admin/add-product">Add Product</Link>
+                        <Link className="nav-link"style={{ color: 'white' }} to="/admin/view-product">View Product</Link>
+                    </nav>
+                </div>
 
-                    <li>
 
-                        <Link className="nav-link" to="/About" >About Us</Link>
-                    </li>
-                    <li>
-                        <Link className="nav-link" to="/Contact" > Contact Us</Link>
-                    </li>
-                    <li>
-                        <Link className="nav-link" to="/Product" > Products</Link>
-                    </li>
-                    <li>
-                        <Link className="nav-link" to="/Categories" ><Category/> </Link>
-                    </li>
-                    <li>
-                        <Link className="nav-link" to="/login" > Login</Link>
-                    </li>
-                    <li>
-                        <Link className="nav-link" to="/register" > Register</Link>
-                    </li>
-                    
-                    <li className=' search col-sm-2'><MagnifyingGlass size={20} color={'#F0EEED '} /></li>
+                <Link className="nav-link"style={{ color: 'white' }} to="/admin/profile">
+                    <div className="sb-nav-link-icon"><i className="fas fa-tachometer-alt"></i></div>
+                    Profile
+                </Link>
 
-                    <input type='text' name='search' placeholder='search'></input>
-
-                </ul>
-            </nav>
+                {/* <Link className="nav-link" style={{ color: 'white' }} to="/admin/viewOrders">
+                    <div className="sb-nav-link-icon"><i className="fas fa-tachometer-alt"></i></div>
+                    Orders
+                </Link> */}
+                
+                <Link className="nav-link" style={{ color: 'white' }} to="">
+                <div className="sb-sidenav-menu-heading">Interface</div>
+                </Link>
+                {/* <Link className="nav-link collapsed" to="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                    <div className="sb-nav-link-icon"><i className="fas fa-columns"></i></div>
+                    Layouts
+                    <div className="sb-sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
+                </Link> */}
+                <div className="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                    <nav className="sb-sidenav-menu-nested nav">
+                        <Link className="nav-link"style={{ color: 'white' }} to="layout-static.html">Static Navigation</Link>
+                        <Link className="nav-link"style={{ color: 'white' }} to="layout-sidenav-light.html">Light Sidenav</Link>
+                    </nav>
+                </div>
+                {/* <Link className="nav-link collapsed" to="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                    <div className="sb-nav-link-icon"><i className="fas fa-book-open"></i></div>
+                    Pages
+                    <div className="sb-sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
+                </Link> */}
+                <div className="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                    <nav className="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                        <Link className="nav-link collapsed" to="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
+                            Authentication
+                            <div className="sb-sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
+                        </Link>
+                        <div className="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                            <nav className="sb-sidenav-menu-nested nav">
+                                <Link className="nav-link"style={{ color: 'white' }} to="login.html">Login</Link>
+                                <Link className="nav-link"style={{ color: 'white' }} to="login.html">Register</Link>
+                                <Link className="nav-link"style={{ color: 'white' }} to="login.html">Extra</Link>
+                            </nav>
+                        </div>
+                    </nav>
+                </div>
+                {/* <Link className="nav-link"style={{ color: 'white' }} to="">
+                <div className="sb-sidenav-menu-heading">Addons</div>
+                </Link>
+                <Link className="nav-link"style={{ color: 'white' }} to="charts.html">
+                    <div className="sb-nav-link-icon"><i className="fas fa-chart-area"></i></div>
+                    Charts
+                </Link>
+                <Link className="nav-link"style={{ color: 'white' }} to="tables.html">
+                    <div className="sb-nav-link-icon"><i className="fas fa-table"></i></div>
+                    Tables
+                </Link> */}
+            </div>
+        </div>
+        {/* <div className="sb-sidenav-footer">
+            <div className="small">Logged in as:</div>
+            Start Bootstrap
+        </div> */}
+    </nav>
         </div>
     );
 }
